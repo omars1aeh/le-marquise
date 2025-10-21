@@ -194,6 +194,17 @@ p {
     letter-spacing: 0.5px;
 }
 
+.logo-image {
+    height: 50px;
+    width: auto;
+    display: block;
+    transition: var(--transition-base);
+}
+
+.logo-image:hover {
+    opacity: 0.8;
+}
+
 .nav-menu {
     display: flex;
     gap: var(--spacing-md);
@@ -950,6 +961,13 @@ p {
 .footer-tagline {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.95rem;
+}
+
+.footer-logo-image {
+    height: 60px;
+    width: auto;
+    margin-bottom: var(--spacing-xs);
+    filter: brightness(0) invert(1);
 }
 
 .footer-col h4 {
