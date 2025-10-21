@@ -195,7 +195,7 @@ p {
 }
 
 .logo-image {
-    height: 35px;
+    height: 55px;
     width: auto;
     display: block;
     transition: var(--transition-base);
@@ -479,6 +479,62 @@ p {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 0.875rem;
+}
+
+/* ========================================
+   Our Companies Section
+   ======================================== */
+
+.companies-section {
+    background-color: var(--color-background-light);
+}
+
+.companies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.company-card {
+    background-color: var(--color-background);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: var(--transition-base);
+}
+
+.company-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.company-logo-wrapper {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+    background-color: var(--color-background-light);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.company-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    padding: var(--spacing-sm);
+}
+
+.company-name {
+    font-size: 1.25rem;
+    color: var(--color-text-dark);
+    margin-bottom: 0;
+    font-family: var(--font-secondary);
+    font-weight: 600;
 }
 
 /* ========================================
@@ -964,7 +1020,7 @@ p {
 }
 
 .footer-logo-image {
-    height: 45px;
+    height: 70px;
     width: auto;
     margin-bottom: var(--spacing-xs);
     filter: brightness(0) invert(1);
