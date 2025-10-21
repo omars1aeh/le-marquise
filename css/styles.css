@@ -195,7 +195,7 @@ p {
 }
 
 .logo-image {
-    height: 50px;
+    height: 35px;
     width: auto;
     display: block;
     transition: var(--transition-base);
@@ -964,7 +964,7 @@ p {
 }
 
 .footer-logo-image {
-    height: 60px;
+    height: 45px;
     width: auto;
     margin-bottom: var(--spacing-xs);
     filter: brightness(0) invert(1);
