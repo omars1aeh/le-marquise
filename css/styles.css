@@ -1495,11 +1495,13 @@ p {
     }
 
     #whyCarousel {
-        padding: 0 50px;
+        padding: 0 60px;
+        position: relative;
     }
 
     #whyCarousel .viewport {
         min-height: 280px;
+        position: relative;
     }
 
     #whyCarousel .track {
@@ -1524,25 +1526,50 @@ p {
     }
 
     #whyCarousel .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         min-width: 44px;
         min-height: 44px;
+        width: 44px;
+        height: 44px;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 8px;
+        z-index: 10;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    #whyCarousel .arrow.prev {
+        left: 8px;
+    }
+
+    #whyCarousel .arrow.next {
+        right: 8px;
     }
 
     #whyCarousel .arrow svg {
-        width: 40px;
-        height: 40px;
+        width: 32px;
+        height: 32px;
+        pointer-events: none;
+    }
+
+    #whyCarousel .arrow:active {
+        transform: translateY(-50%) scale(0.95);
     }
 
     /* Companies Carousel */
     #companiesCarousel {
-        padding: 0 50px;
+        padding: 0 60px;
+        position: relative;
     }
 
     #companiesCarousel .viewport {
         min-height: 420px;
+        position: relative;
     }
 
     #companiesCarousel .track {
@@ -1570,16 +1597,39 @@ p {
     }
 
     #companiesCarousel .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         min-width: 44px;
         min-height: 44px;
+        width: 44px;
+        height: 44px;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 8px;
+        z-index: 10;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    #companiesCarousel .arrow.prev {
+        left: 8px;
+    }
+
+    #companiesCarousel .arrow.next {
+        right: 8px;
     }
 
     #companiesCarousel .arrow svg {
-        width: 40px;
-        height: 40px;
+        width: 32px;
+        height: 32px;
+        pointer-events: none;
+    }
+
+    #companiesCarousel .arrow:active {
+        transform: translateY(-50%) scale(0.95);
     }
 
     /* Other sections */
@@ -1645,10 +1695,10 @@ p {
 
     /* Carousels on small phones */
     #whyCarousel {
-        padding: 0 44px;
+        padding: 0 52px;
     }
 
-    #whyCarousel .arrow {
+    #whyCarousel .arrow.prev {
         left: 4px;
     }
 
@@ -1657,10 +1707,10 @@ p {
     }
 
     #companiesCarousel {
-        padding: 0 44px;
+        padding: 0 52px;
     }
 
-    #companiesCarousel .arrow {
+    #companiesCarousel .arrow.prev {
         left: 4px;
     }
 
