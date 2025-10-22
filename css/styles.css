@@ -443,7 +443,9 @@ p {
     position: relative;
     max-width: 700px;
     margin: var(--spacing-lg) auto 0;
-    padding: 0;
+    padding: 0 clamp(60px, 12vw, 80px);
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .carousel .viewport {
@@ -452,13 +454,15 @@ p {
     width: 100%;
     min-height: 400px;
     background: transparent;
-    margin: 0 80px 0 72px;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .carousel .track {
     position: relative;
     width: 100%;
     min-height: 400px;
+    box-sizing: border-box;
 }
 
 .carousel .slide {
@@ -478,7 +482,7 @@ p {
     box-sizing: border-box;
 }
 
-/* Arrow buttons - no circle, just the glyph */
+/* Arrow buttons - symmetric positioning, proper touch targets */
 .carousel .arrow {
     position: absolute;
     top: 50%;
@@ -489,9 +493,16 @@ p {
     color: var(--color-accent);
     padding: 0;
     margin: 0;
-    z-index: 10;
+    z-index: 15;
     transition: all 0.3s ease;
     outline: none;
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel .arrow:hover {
@@ -504,17 +515,24 @@ p {
     outline-offset: 4px;
 }
 
+.carousel .arrow:focus:not(:focus-visible) {
+    outline: none;
+}
+
 .carousel .arrow.prev {
-    left: -72px;
+    left: clamp(4px, 1vw, 12px);
 }
 
 .carousel .arrow.next {
-    right: -72px;
+    right: clamp(4px, 1vw, 12px);
 }
 
 .carousel .arrow svg {
     display: block;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+    pointer-events: none;
+    width: clamp(32px, 6vw, 40px);
+    height: clamp(32px, 6vw, 40px);
 }
 
 /* Why carousel specific styles */
@@ -1492,153 +1510,119 @@ p {
 
     /* Why La Marquise Carousel */
     .why-choose {
-        padding: 60px 0;
+        padding: clamp(48px, 8vw, 72px) 0;
+        overflow-x: hidden;
     }
 
     .why-choose .section-title {
-        margin-bottom: 40px;
+        margin-bottom: clamp(32px, 5vw, 48px);
     }
 
     #whyCarousel {
-        padding: 0;
+        padding: 0 clamp(48px, 10vw, 60px);
         max-width: 100%;
         margin: 0 auto;
     }
 
     #whyCarousel .viewport {
-        min-height: 280px;
-        margin: 0 60px 0 52px;
-        position: relative;
+        min-height: clamp(260px, 45vw, 320px);
+        margin: 0;
     }
 
     #whyCarousel .track {
-        min-height: 280px;
+        min-height: clamp(260px, 45vw, 320px);
     }
 
     #whyCarousel .slide {
-        min-height: 280px;
-        padding: 20px;
+        min-height: clamp(260px, 45vw, 320px);
+        padding: clamp(16px, 4vw, 24px);
     }
 
     #whyCarousel .why-number {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 6vw, 2.8rem);
+        margin-bottom: clamp(8px, 2vw, 16px);
     }
 
     #whyCarousel h3 {
-        font-size: 1.4rem;
+        font-size: clamp(1.3rem, 4vw, 1.6rem);
+        margin-bottom: clamp(12px, 3vw, 20px);
     }
 
     #whyCarousel p {
-        font-size: 1rem;
+        font-size: clamp(0.95rem, 3vw, 1.1rem);
+        line-height: 1.6;
     }
 
     #whyCarousel .arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        min-width: 44px;
-        min-height: 44px;
-        width: 44px;
-        height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        z-index: 10;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-    }
-
-    #whyCarousel .arrow.prev {
-        left: -52px;
+        left: clamp(2px, 0.5vw, 8px);
     }
 
     #whyCarousel .arrow.next {
-        right: -52px;
+        right: clamp(2px, 0.5vw, 8px);
+        left: auto;
     }
 
     #whyCarousel .arrow svg {
-        width: 32px;
-        height: 32px;
-        pointer-events: none;
-    }
-
-    #whyCarousel .arrow:active {
-        transform: translateY(-50%) scale(0.95);
+        width: clamp(28px, 6vw, 36px);
+        height: clamp(28px, 6vw, 36px);
     }
 
     /* Companies Carousel */
+    .companies-section {
+        overflow-x: hidden;
+    }
+
     #companiesCarousel {
-        padding: 0;
+        padding: 0 clamp(48px, 10vw, 60px);
         max-width: 100%;
         margin: 0 auto;
     }
 
     #companiesCarousel .viewport {
-        min-height: 420px;
-        margin: 0 60px 0 52px;
-        position: relative;
+        min-height: clamp(380px, 55vw, 450px);
+        margin: 0;
     }
 
     #companiesCarousel .track {
-        min-height: 420px;
+        min-height: clamp(380px, 55vw, 450px);
     }
 
     #companiesCarousel .slide {
-        min-height: 420px;
-        padding: 32px 20px;
+        min-height: clamp(380px, 55vw, 450px);
+        padding: clamp(24px, 5vw, 36px) clamp(16px, 4vw, 24px);
     }
 
     #companiesCarousel .company-logo-box {
-        height: 240px;
+        height: clamp(200px, 35vw, 260px);
         max-width: 100%;
-        padding: 24px;
+        padding: clamp(16px, 4vw, 28px);
+        margin-bottom: clamp(16px, 4vw, 24px);
     }
 
     #companiesCarousel .company-logo-box img {
-        width: 90%;
-        height: 90%;
+        width: 85%;
+        height: 85%;
+        max-width: 100%;
+        max-height: 100%;
     }
 
     #companiesCarousel h3 {
-        font-size: 1.3rem;
+        font-size: clamp(1.15rem, 4vw, 1.4rem);
+        line-height: 1.3;
     }
 
     #companiesCarousel .arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        min-width: 44px;
-        min-height: 44px;
-        width: 44px;
-        height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        z-index: 10;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-    }
-
-    #companiesCarousel .arrow.prev {
-        left: -52px;
+        left: clamp(2px, 0.5vw, 8px);
     }
 
     #companiesCarousel .arrow.next {
-        right: -52px;
+        right: clamp(2px, 0.5vw, 8px);
+        left: auto;
     }
 
     #companiesCarousel .arrow svg {
-        width: 32px;
-        height: 32px;
-        pointer-events: none;
-    }
-
-    #companiesCarousel .arrow:active {
-        transform: translateY(-50%) scale(0.95);
+        width: clamp(28px, 6vw, 36px);
+        height: clamp(28px, 6vw, 36px);
     }
 
     /* Other sections */
@@ -1702,31 +1686,7 @@ p {
         font-size: 1.75rem;
     }
 
-    /* Carousels on small phones */
-    #whyCarousel .viewport,
-    #companiesCarousel .viewport {
-        margin: 0 50px 0 44px;
-    }
-
-    #whyCarousel .arrow.prev,
-    #companiesCarousel .arrow.prev {
-        left: -46px;
-    }
-
-    #whyCarousel .arrow.next,
-    #companiesCarousel .arrow.next {
-        right: -46px;
-    }
-
-    #companiesCarousel .company-logo-box {
-        height: 200px;
-        padding: 16px;
-    }
-
-    #companiesCarousel .slide {
-        padding: 24px 16px;
-    }
-
+    /* Small phone adjustments - clamp() in 768px breakpoint handles most sizing */
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
