@@ -1495,13 +1495,14 @@ p {
     }
 
     #whyCarousel {
-        padding: 0 60px;
+        padding: 0;
         position: relative;
+        max-width: 100%;
     }
 
     #whyCarousel .viewport {
         min-height: 280px;
-        position: relative;
+        margin: 0 60px;
     }
 
     #whyCarousel .track {
@@ -1541,6 +1542,7 @@ p {
         background: transparent;
         border: none;
         cursor: pointer;
+        margin-top: 40px;
     }
 
     #whyCarousel .arrow.prev {
@@ -1563,13 +1565,14 @@ p {
 
     /* Companies Carousel */
     #companiesCarousel {
-        padding: 0 60px;
+        padding: 0;
         position: relative;
+        max-width: 100%;
     }
 
     #companiesCarousel .viewport {
         min-height: 420px;
-        position: relative;
+        margin: 0 60px;
     }
 
     #companiesCarousel .track {
@@ -1694,8 +1697,8 @@ p {
     }
 
     /* Carousels on small phones */
-    #whyCarousel {
-        padding: 0 52px;
+    #whyCarousel .viewport {
+        margin: 0 52px;
     }
 
     #whyCarousel .arrow.prev {
@@ -1706,8 +1709,8 @@ p {
         right: 4px;
     }
 
-    #companiesCarousel {
-        padding: 0 52px;
+    #companiesCarousel .viewport {
+        margin: 0 52px;
     }
 
     #companiesCarousel .arrow.prev {
