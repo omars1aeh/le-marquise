@@ -1496,13 +1496,13 @@ p {
 
     #whyCarousel {
         padding: 0;
-        position: relative;
         max-width: 100%;
     }
 
     #whyCarousel .viewport {
         min-height: 280px;
         margin: 0 60px;
+        position: relative;
     }
 
     #whyCarousel .track {
@@ -1537,20 +1537,19 @@ p {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 8px;
+        padding: 0;
         z-index: 10;
         background: transparent;
         border: none;
         cursor: pointer;
-        margin-top: 40px;
     }
 
     #whyCarousel .arrow.prev {
-        left: 8px;
+        left: -52px;
     }
 
     #whyCarousel .arrow.next {
-        right: 8px;
+        right: -52px;
     }
 
     #whyCarousel .arrow svg {
@@ -1566,13 +1565,13 @@ p {
     /* Companies Carousel */
     #companiesCarousel {
         padding: 0;
-        position: relative;
         max-width: 100%;
     }
 
     #companiesCarousel .viewport {
         min-height: 420px;
         margin: 0 60px;
+        position: relative;
     }
 
     #companiesCarousel .track {
@@ -1610,7 +1609,7 @@ p {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 8px;
+        padding: 0;
         z-index: 10;
         background: transparent;
         border: none;
@@ -1618,11 +1617,11 @@ p {
     }
 
     #companiesCarousel .arrow.prev {
-        left: 8px;
+        left: -52px;
     }
 
     #companiesCarousel .arrow.next {
-        right: 8px;
+        right: -52px;
     }
 
     #companiesCarousel .arrow svg {
@@ -1697,28 +1696,19 @@ p {
     }
 
     /* Carousels on small phones */
-    #whyCarousel .viewport {
-        margin: 0 52px;
-    }
-
-    #whyCarousel .arrow.prev {
-        left: 4px;
-    }
-
-    #whyCarousel .arrow.next {
-        right: 4px;
-    }
-
+    #whyCarousel .viewport,
     #companiesCarousel .viewport {
-        margin: 0 52px;
+        margin: 0 50px;
     }
 
+    #whyCarousel .arrow.prev,
     #companiesCarousel .arrow.prev {
-        left: 4px;
+        left: -46px;
     }
 
+    #whyCarousel .arrow.next,
     #companiesCarousel .arrow.next {
-        right: 4px;
+        right: -46px;
     }
 
     #companiesCarousel .company-logo-box {
