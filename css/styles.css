@@ -1,5 +1,5 @@
 /* ========================================
-   Le Marquise - Facility Management
+   La Marquise Group - Management Services
    Luxury Minimalist Design System
    ======================================== */
 
@@ -121,7 +121,7 @@ p {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    padding: 0 var(--spacing-lg);
 }
 
 .section {
@@ -297,7 +297,7 @@ p {
     text-align: center;
     color: var(--color-background);
     max-width: 900px;
-    padding: 0 var(--spacing-md);
+    padding: 0 var(--spacing-lg);
 }
 
 .hero-title {
@@ -370,6 +370,20 @@ p {
     color: var(--color-primary);
 }
 
+/* Secondary button on light backgrounds */
+.section:not(.section-dark) .btn-secondary,
+.cta-section:not(.section-dark) .btn-secondary {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background-color: transparent;
+}
+
+.section:not(.section-dark) .btn-secondary:hover,
+.cta-section:not(.section-dark) .btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
 .btn-full {
     width: 100%;
 }
@@ -387,7 +401,7 @@ p {
 
 .service-card {
     background-color: var(--color-background);
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     transition: var(--transition-base);
@@ -498,7 +512,7 @@ p {
 
 .company-card {
     background-color: var(--color-background);
-    padding: var(--spacing-lg);
+    padding: calc(var(--spacing-lg) * 1.5);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     text-align: center;
@@ -638,7 +652,7 @@ p {
 
 .value-item {
     background-color: var(--color-background);
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     text-align: center;
@@ -785,7 +799,7 @@ p {
 
 .process-step {
     background-color: var(--color-background);
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     text-align: center;

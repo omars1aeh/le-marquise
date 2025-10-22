@@ -1,6 +1,6 @@
-# Le Marquise - Facility Management Website
+# La Marquise Group - Management Services Website
 
-A luxury minimalist website for Le Marquise, a premier facility management company specializing in integrated facility solutions, security services, cleaning services, and landscaping.
+A luxury minimalist website for La Marquise Group, a 100% UAE-based group offering comprehensive management services including Facilities Management, Properties & Real Estate Management, and Corporate Management.
 
 ## Features
 
