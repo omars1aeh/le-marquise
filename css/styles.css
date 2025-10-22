@@ -443,7 +443,7 @@ p {
     position: relative;
     max-width: 700px;
     margin: var(--spacing-lg) auto 0;
-    padding: 0 80px;
+    padding: 0;
 }
 
 .carousel .viewport {
@@ -452,6 +452,7 @@ p {
     width: 100%;
     min-height: 400px;
     background: transparent;
+    margin: 0 80px;
 }
 
 .carousel .track {
@@ -504,11 +505,11 @@ p {
 }
 
 .carousel .arrow.prev {
-    left: 10px;
+    left: -72px;
 }
 
 .carousel .arrow.next {
-    right: 10px;
+    right: -72px;
 }
 
 .carousel .arrow svg {
@@ -571,6 +572,10 @@ p {
 }
 
 /* Companies carousel specific styles */
+#companiesCarousel {
+    margin: 0 auto;
+}
+
 #companiesCarousel .viewport {
     min-height: 480px;
 }
@@ -1497,6 +1502,7 @@ p {
     #whyCarousel {
         padding: 0;
         max-width: 100%;
+        margin: 0 auto;
     }
 
     #whyCarousel .viewport {
@@ -1566,6 +1572,7 @@ p {
     #companiesCarousel {
         padding: 0;
         max-width: 100%;
+        margin: 0 auto;
     }
 
     #companiesCarousel .viewport {
