@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diagnostic Page</title>
+    <style>
+        body { font-family: monospace; padding: 20px; }
+        .pass { color: green; }
+        .fail { color: red; }
+        .info { color: blue; }
+        pre { background: #f5f5f5; padding: 10px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>Carousel Diagnostic</h1>
+    <div id="output"></div>
+
+    <script src="js/script.js"></script>
+    <script>
+        const output = document.getElementById('output');
+
+        function log(msg, type = 'info') {
+            const p = document.createElement('p');
+            p.className = type;
+            p.textContent = msg;
+            output.appendChild(p);
+        }
+
+        setTimeout(() => {
+            log('=== DIAGNOSTIC REPORT ===', 'info');
+            log('');
+
+            // Check if makeCarousel exists
+            if (typeof makeCarousel === 'function') {
+                log('✓ makeCarousel function exists', 'pass');
+            } else {
+                log('✗ makeCarousel function NOT FOUND', 'fail');
+            }
+
+            // Check if carousel elements exist
+            const whyCarousel = document.getElementById('whyCarousel');
+            if (whyCarousel) {
+                log('✓ #whyCarousel element found', 'pass');
+
+                const track = whyCarousel.querySelector('.track');
+                if (track) {
+                    log('✓ .track found in whyCarousel', 'pass');
+                    const slides = track.querySelectorAll('.slide');
+                    log(`  → Found ${slides.length} slides in track`, slides.length > 0 ? 'pass' : 'fail');
+                } else {
+                    log('✗ .track NOT found in whyCarousel', 'fail');
+                }
+            } else {
+                log('✗ #whyCarousel element NOT FOUND', 'fail');
+            }
+
+            const companiesCarousel = document.getElementById('companiesCarousel');
+            if (companiesCarousel) {
+                log('✓ #companiesCarousel element found', 'pass');
+
+                const track = companiesCarousel.querySelector('.track');
+                if (track) {
+                    log('✓ .track found in companiesCarousel', 'pass');
+                    const slides = track.querySelectorAll('.slide');
+                    log(`  → Found ${slides.length} slides in track`, slides.length > 0 ? 'pass' : 'fail');
+                } else {
+                    log('✗ .track NOT found in companiesCarousel', 'fail');
+                }
+            } else {
+                log('✗ #companiesCarousel element NOT FOUND', 'fail');
+            }
+
+            log('');
+            log('=== CONSOLE OUTPUT ===', 'info');
+            log('Check browser console (F12) for detailed logs');
+
+        }, 1000);
+    </script>
+</body>
+</html>

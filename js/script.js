@@ -390,3 +390,203 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// ========================================
+// Carousel System - Reusable Module
+// ========================================
+/**
+ * makeCarousel - Creates a single-item carousel with left/right navigation
+ * @param {HTMLElement} rootEl - The carousel container element
+ * @param {Array} items - Array of data items to display
+ * @param {Function} renderSlide - Function that renders each slide's HTML
+ *
+ * Usage:
+ * makeCarousel(
+ *   document.getElementById('myCarousel'),
+ *   [{name: 'Item 1'}, {name: 'Item 2'}],
+ *   (item) => `<div>${item.name}</div>`
+ * );
+ */
+function makeCarousel(rootEl, items, renderSlide) {
+    console.log('makeCarousel called with:', { rootEl, itemCount: items?.length });
+
+    if (!rootEl || !items || items.length === 0) {
+        console.error('Invalid carousel parameters', { rootEl, items });
+        return;
+    }
+
+    const track = rootEl.querySelector('.track');
+    const prevBtn = rootEl.querySelector('.arrow.prev');
+    const nextBtn = rootEl.querySelector('.arrow.next');
+
+    console.log('Carousel elements found:', { track, prevBtn, nextBtn });
+
+    if (!track) {
+        console.error('Track element not found in', rootEl);
+        return;
+    }
+
+    let currentIndex = 0;
+
+    // Initialize: render all slides
+    function init() {
+        console.log('Initializing carousel with', items.length, 'items');
+        track.innerHTML = '';
+        items.forEach((item, index) => {
+            const slideDiv = document.createElement('div');
+            slideDiv.className = 'slide';
+            const html = renderSlide(item);
+            console.log(`Slide ${index} HTML:`, html);
+            slideDiv.innerHTML = html;
+            track.appendChild(slideDiv);
+        });
+        console.log('Slides created, calling render()');
+        render();
+    }
+
+    // Render current state
+    function render() {
+        const slides = track.querySelectorAll('.slide');
+        const total = slides.length;
+
+        console.log(`Rendering: ${total} slides, currentIndex=${currentIndex}`);
+
+        slides.forEach((slide, i) => {
+            // Calculate relative position
+            const prevIndex = (currentIndex - 1 + total) % total;
+
+            if (i === currentIndex) {
+                // Active slide: center, fully visible
+                slide.style.transform = 'translateX(0%)';
+                slide.style.opacity = '1';
+                slide.style.zIndex = '2';
+                console.log(`Slide ${i}: ACTIVE (center, opacity 1)`);
+            } else if (i === prevIndex) {
+                // Previous slide: to the left, faded
+                slide.style.transform = 'translateX(-100%)';
+                slide.style.opacity = '0.35';
+                slide.style.zIndex = '1';
+                console.log(`Slide ${i}: PREVIOUS (left, opacity 0.35)`);
+            } else {
+                // All others: off to the right, hidden
+                slide.style.transform = 'translateX(100%)';
+                slide.style.opacity = '0';
+                slide.style.zIndex = '0';
+                console.log(`Slide ${i}: HIDDEN (right, opacity 0)`);
+            }
+        });
+    }
+
+    // Navigate to next item
+    function next() {
+        currentIndex = (currentIndex + 1) % items.length;
+        render();
+    }
+
+    // Navigate to previous item
+    function prev() {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        render();
+    }
+
+    // Attach event listeners
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            prev();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            next();
+        });
+    }
+
+    // Keyboard navigation
+    rootEl.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            prev();
+        } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            next();
+        }
+    });
+
+    // Make carousel focusable for keyboard nav
+    rootEl.setAttribute('tabindex', '0');
+
+    init();
+
+    return { next, prev, goto: (index) => { currentIndex = index; render(); } };
+}
+
+// ========================================
+// Initialize Carousels on Page Load
+// ========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 CAROUSEL DOMContentLoaded FIRED!');
+    console.log('Current URL:', window.location.href);
+    console.log('DOM ready state:', document.readyState);
+
+    // Data: Why La Marquise points
+    const whyPoints = [
+        { number: '01', title: 'Excellence & Pride', text: 'We take pride in delivering exceptional service that reflects the prestige of your facility.' },
+        { number: '02', title: 'Trust & Reliability', text: 'Consistent, dependable service backed by rigorous quality control and professional expertise.' },
+        { number: '03', title: 'Safety & Assurance', text: 'Certified processes and trained personnel ensuring the highest safety and security standards.' },
+        { number: '04', title: 'Peace of Mind', text: 'Dedicated account management and 24/7 support for complete confidence in your facility operations.' }
+    ];
+
+    // Data: Companies
+    const companies = [
+        { name: 'Al Dahan Al Masi', img: 'images/Dahan_no_bg.png' },
+        { name: 'Haven House', img: 'images/HH Vertical_no_bg.png' },
+        { name: 'Off White', img: 'images/Off White.jpeg' },
+        { name: 'ZEE Production House', img: 'images/ZEE_no_bg.png' }
+    ];
+
+    // Render function for Why carousel
+    function renderWhySlide(item) {
+        return `
+            <div class="why-number">${item.number}</div>
+            <h3>${item.title}</h3>
+            <p>${item.text}</p>
+        `;
+    }
+
+    // Render function for Companies carousel
+    function renderCompanySlide(item) {
+        return `
+            <div class="company-logo-box">
+                <img src="${item.img}" alt="${item.name}">
+            </div>
+            <h3>${item.name}</h3>
+        `;
+    }
+
+    // Initialize both carousels
+    console.log('=== INITIALIZING CAROUSELS ===');
+
+    const whyCarousel = document.getElementById('whyCarousel');
+    console.log('Why carousel element:', whyCarousel);
+    if (whyCarousel) {
+        console.log('Creating Why carousel with', whyPoints.length, 'points');
+        makeCarousel(whyCarousel, whyPoints, renderWhySlide);
+    } else {
+        console.error('whyCarousel element not found!');
+    }
+
+    const companiesCarousel = document.getElementById('companiesCarousel');
+    console.log('Companies carousel element:', companiesCarousel);
+    if (companiesCarousel) {
+        console.log('Creating Companies carousel with', companies.length, 'companies');
+        makeCarousel(companiesCarousel, companies, renderCompanySlide);
+    } else {
+        console.error('companiesCarousel element not found!');
+    }
+
+    console.log('=== CAROUSEL INITIALIZATION COMPLETE ===');
+});

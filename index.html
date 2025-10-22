@@ -13,7 +13,7 @@
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="images/logo.jpg" alt="La Marquise Group" class="logo-image">
+                <img src="images/LM Horizontal_no_bg.png" alt="La Marquise Group" class="logo-image">
             </a>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
                 <span></span>
@@ -24,6 +24,7 @@
                 <li><a href="index.html" class="nav-link active">Home</a></li>
                 <li><a href="about.html" class="nav-link">About Us</a></li>
                 <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="careers.html" class="nav-link">Careers</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -95,51 +96,22 @@
     <section class="why-choose section-dark">
         <div class="container">
             <h2 class="section-title">Why La Marquise Group</h2>
-            <div class="why-grid">
-                <div class="why-item reveal">
-                    <div class="why-number">01</div>
-                    <h3>Excellence & Pride</h3>
-                    <p>We take pride in delivering exceptional service that reflects the prestige of your facility.</p>
+            <div class="carousel" id="whyCarousel">
+                <button type="button" class="arrow prev" aria-label="Previous reason">
+                    <svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 8L12 16L20 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="viewport">
+                    <div class="track">
+                        <!-- Slides will be injected by JS -->
+                    </div>
                 </div>
-                <div class="why-item reveal">
-                    <div class="why-number">02</div>
-                    <h3>Trust & Reliability</h3>
-                    <p>Consistent, dependable service backed by rigorous quality control and professional expertise.</p>
-                </div>
-                <div class="why-item reveal">
-                    <div class="why-number">03</div>
-                    <h3>Safety & Assurance</h3>
-                    <p>Certified processes and trained personnel ensuring the highest safety and security standards.</p>
-                </div>
-                <div class="why-item reveal">
-                    <div class="why-number">04</div>
-                    <h3>Peace of Mind</h3>
-                    <p>Dedicated account management and 24/7 support for complete confidence in your facility operations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience & Stats -->
-    <section class="stats section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item reveal">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Years of Excellence</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number">200+</div>
-                    <div class="stat-label">Facilities Managed</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Professional Staff</div>
-                </div>
-                <div class="stat-item reveal">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">Client Satisfaction</div>
-                </div>
+                <button type="button" class="arrow next" aria-label="Next reason">
+                    <svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 8L20 16L12 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
@@ -150,33 +122,56 @@
             <h2 class="section-title">Our Companies</h2>
             <p class="section-subtitle">Part of a family of leading service providers</p>
 
-            <div class="companies-grid">
-                <div class="company-card reveal">
-                    <div class="company-logo-wrapper">
-                        <img src="images/company-1.jpg" alt="Company 1" class="company-logo">
+            <div class="carousel" id="companiesCarousel">
+                <button type="button" class="arrow prev" aria-label="Previous company">
+                    <svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 8L12 16L20 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="viewport">
+                    <div class="track">
+                        <!-- Slides will be injected by JS -->
                     </div>
-                    <h3 class="company-name">Company Name 1</h3>
                 </div>
+                <button type="button" class="arrow next" aria-label="Next company">
+                    <svg width="48" height="48" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 8L20 16L12 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
 
-                <div class="company-card reveal">
-                    <div class="company-logo-wrapper">
-                        <img src="images/company-2.jpg" alt="Company 2" class="company-logo">
-                    </div>
-                    <h3 class="company-name">Company Name 2</h3>
+    <!-- Careers Section -->
+    <section class="careers-section section">
+        <div class="container">
+            <h2 class="section-title">Join Our Team</h2>
+            <p class="section-subtitle">Be part of a dynamic team delivering excellence across the UAE</p>
+
+            <div class="careers-content reveal">
+                <div class="careers-text">
+                    <h3>Why Work With Us?</h3>
+                    <ul class="careers-benefits">
+                        <li>
+                            <strong>Growth Opportunities:</strong> Develop your career with continuous training and advancement opportunities
+                        </li>
+                        <li>
+                            <strong>Competitive Benefits:</strong> Comprehensive benefits package including health insurance and performance bonuses
+                        </li>
+                        <li>
+                            <strong>Diverse Environment:</strong> Work with talented professionals from various backgrounds and cultures
+                        </li>
+                        <li>
+                            <strong>Innovation:</strong> Be part of a forward-thinking organization that values new ideas and initiatives
+                        </li>
+                    </ul>
                 </div>
-
-                <div class="company-card reveal">
-                    <div class="company-logo-wrapper">
-                        <img src="images/company-3.jpg" alt="Company 3" class="company-logo">
+                <div class="careers-cta">
+                    <div class="careers-box">
+                        <h3>Current Opportunities</h3>
+                        <p>We're always looking for talented individuals to join our growing team across all our service divisions.</p>
+                        <a href="contact.html" class="btn btn-primary">Apply Now</a>
                     </div>
-                    <h3 class="company-name">Company Name 3</h3>
-                </div>
-
-                <div class="company-card reveal">
-                    <div class="company-logo-wrapper">
-                        <img src="images/company-4.jpg" alt="Company 4" class="company-logo">
-                    </div>
-                    <h3 class="company-name">Company Name 4</h3>
                 </div>
             </div>
         </div>
@@ -201,7 +196,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="images/logo.jpg" alt="La Marquise Group" class="footer-logo-image">
+                    <img src="images/LM Vertical_no_bg.png" alt="La Marquise Group" class="footer-logo-image">
                     <p class="footer-tagline">Excellence in Management Services</p>
                 </div>
                 <div class="footer-col">
@@ -210,6 +205,7 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="services.html">Services</a></li>
+                        <li><a href="careers.html">Careers</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -236,6 +232,35 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js?v=2"></script>
+    <script>
+        // Inline debug to check what's loaded
+        console.log('=== INLINE DEBUG ===');
+        console.log('Document ready state:', document.readyState);
+        console.log('whyCarousel element:', document.getElementById('whyCarousel'));
+        console.log('companiesCarousel element:', document.getElementById('companiesCarousel'));
+        console.log('makeCarousel function exists:', typeof makeCarousel);
+
+        // Check after DOM loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('=== AFTER DOM LOADED ===');
+                console.log('whyCarousel element:', document.getElementById('whyCarousel'));
+                console.log('companiesCarousel element:', document.getElementById('companiesCarousel'));
+                console.log('makeCarousel function:', typeof makeCarousel);
+
+                // Check if track exists
+                const whyEl = document.getElementById('whyCarousel');
+                if (whyEl) {
+                    console.log('whyCarousel track:', whyEl.querySelector('.track'));
+                    console.log('whyCarousel viewport:', whyEl.querySelector('.viewport'));
+                    console.log('whyCarousel arrows:', {
+                        prev: whyEl.querySelector('.arrow.prev'),
+                        next: whyEl.querySelector('.arrow.next')
+                    });
+                }
+            });
+        }
+    </script>
 </body>
 </html>

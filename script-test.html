@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Script Load Test</title>
+</head>
+<body>
+    <h1>Script Load Test</h1>
+    <div id="output"></div>
+
+    <script>
+        console.log('1. Before script.js load');
+        document.getElementById('output').innerHTML += '<p>Before script.js</p>';
+    </script>
+
+    <script src="js/script.js"></script>
+
+    <script>
+        console.log('2. After script.js load');
+        document.getElementById('output').innerHTML += '<p>After script.js - if you see this, script.js loaded without fatal errors</p>';
+    </script>
+</body>
+</html>
