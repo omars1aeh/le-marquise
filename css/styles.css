@@ -452,7 +452,7 @@ p {
     width: 100%;
     min-height: 400px;
     background: transparent;
-    margin: 0 80px;
+    margin: 0 80px 0 72px;
 }
 
 .carousel .track {
@@ -1507,7 +1507,7 @@ p {
 
     #whyCarousel .viewport {
         min-height: 280px;
-        margin: 0 60px;
+        margin: 0 60px 0 52px;
         position: relative;
     }
 
@@ -1577,7 +1577,7 @@ p {
 
     #companiesCarousel .viewport {
         min-height: 420px;
-        margin: 0 60px;
+        margin: 0 60px 0 52px;
         position: relative;
     }
 
@@ -1705,7 +1705,7 @@ p {
     /* Carousels on small phones */
     #whyCarousel .viewport,
     #companiesCarousel .viewport {
-        margin: 0 50px;
+        margin: 0 50px 0 44px;
     }
 
     #whyCarousel .arrow.prev,
