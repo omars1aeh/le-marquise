@@ -1,5 +1,5 @@
 /**
- * Le Marquise - Facility Management
+ * La Marquise - Facility Management
  * Main JavaScript File
  */
 

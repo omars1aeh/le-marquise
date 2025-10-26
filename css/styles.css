@@ -6,8 +6,8 @@
 /* CSS Custom Properties */
 :root {
     /* Colors */
-    --color-primary: #1a1a2e;
-    --color-secondary: #16213e;
+    --color-primary: #2a1440;
+    --color-secondary: #3d1f5c;
     --color-accent: #c9a961;
     --color-accent-light: #d4b76d;
     --color-text: #2c2c2c;
@@ -15,8 +15,9 @@
     --color-text-dark: #1a1a1a;
     --color-background: #ffffff;
     --color-background-light: #f8f8f8;
-    --color-background-dark: #1a1a2e;
+    --color-background-dark: #2a1440;
     --color-border: #e5e5e5;
+    --color-border-section: #a88b4a;
     --color-success: #10b981;
     --color-error: #ef4444;
 
@@ -126,6 +127,21 @@ p {
 
 .section {
     padding: var(--spacing-xl) 0;
+    border-top: 3px solid var(--color-border-section);
+}
+
+.section:first-of-type {
+    border-top: none;
+}
+
+.hero + .section,
+.page-hero + .section {
+    border-top: none;
+}
+
+.section-dark + .section,
+.section-dark + .section-light {
+    border-top: none;
 }
 
 .section-light {
@@ -135,6 +151,10 @@ p {
 .section-dark {
     background-color: var(--color-background-dark);
     color: var(--color-background);
+    border-top: 3px solid var(--color-border-section);
+    border-bottom: 3px solid var(--color-border-section);
+    padding-top: calc(var(--spacing-xl) + 2rem);
+    padding-bottom: calc(var(--spacing-xl) + 2rem);
 }
 
 .section-dark h1,
@@ -270,8 +290,9 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     overflow: hidden;
+    border-bottom: 3px solid var(--color-border-section);
 }
 
 .hero::before {
@@ -322,9 +343,10 @@ p {
 /* Page Hero (Internal Pages) */
 .page-hero {
     padding: calc(80px + var(--spacing-lg)) 0 var(--spacing-lg) 0;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     color: var(--color-background);
     text-align: center;
+    border-bottom: 3px solid var(--color-border-section);
 }
 
 .page-hero-title {
@@ -686,11 +708,17 @@ p {
 
 .companies-section {
     background-color: var(--color-background-light);
+    padding-bottom: calc(var(--spacing-xl) + 2rem);
 }
 
 /* ========================================
    CTA Section
    ======================================== */
+
+.cta-section {
+    padding-top: calc(var(--spacing-xl) + 3rem);
+    padding-bottom: calc(var(--spacing-xl) + 2rem);
+}
 
 .cta-content {
     text-align: center;
@@ -759,6 +787,9 @@ p {
 .mission-grid {
     max-width: 800px;
     margin: 0 auto var(--spacing-lg) auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
 }
 
 .mission-card {
@@ -1149,6 +1180,11 @@ p {
     background-color: var(--color-primary);
     color: var(--color-background);
     padding: var(--spacing-lg) 0 var(--spacing-md) 0;
+    border-top: 3px solid var(--color-border-section);
+}
+
+.section-dark + .footer {
+    border-top: none;
 }
 
 .footer-grid {
