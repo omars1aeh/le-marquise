@@ -542,10 +542,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Data: Companies
     const companies = [
-        { name: 'Al Dahan Al Masi', img: 'images/Dahan_no_bg.png' },
-        { name: 'Haven House', img: 'images/HH Vertical_no_bg.png' },
-        { name: 'Off White', img: 'images/Off White.jpeg' },
-        { name: 'ZEE Production House', img: 'images/ZEE_no_bg.png' }
+        { name: 'Al Dahan Al Masi General Maintenance', img: 'images/Dahan_no_bg.png' },
+        { name: 'Haven House General Contracting', img: 'images/HH Vertical_no_bg.png' },
+        { name: 'Off White Interior Design', img: 'images/Off White.jpeg' },
+        { name: 'ZEE Production House Real Estate Consultancy', img: 'images/ZEE_no_bg.png' }
     ];
 
     // Render function for Why carousel
