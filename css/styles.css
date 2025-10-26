@@ -288,7 +288,8 @@ p {
     z-index: 1001;
 }
 
-.nav-item-dropdown:hover .dropdown-menu {
+.nav-item-dropdown:hover .dropdown-menu,
+.nav-item-dropdown.active .dropdown-menu {
     opacity: 1;
     visibility: visible;
     margin-top: 0.5rem;
@@ -769,6 +770,49 @@ p {
     color: var(--color-text);
     margin-bottom: 0;
     line-height: 1.8;
+}
+
+/* ========================================
+   Partners Section
+   ======================================== */
+
+.partners-section {
+    background-color: var(--color-background);
+}
+
+.partners-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.partner-logo {
+    flex: 0 1 auto;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-base);
+}
+
+.partner-logo:hover {
+    transform: scale(1.05);
+}
+
+.partner-logo img {
+    max-height: 100%;
+    max-width: 200px;
+    object-fit: contain;
+    filter: grayscale(0%);
+    transition: filter var(--transition-base);
+}
+
+.partner-logo:hover img {
+    filter: grayscale(0%);
 }
 
 /* Service Detail Pages */
@@ -1341,9 +1385,14 @@ p {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-md);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: start;
+    justify-items: center;
 }
 
 .footer-logo {
@@ -1363,6 +1412,14 @@ p {
     width: auto;
     margin-bottom: var(--spacing-xs);
     filter: brightness(0) invert(1);
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
 }
 
 .footer-col h4 {
