@@ -542,10 +542,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Data: Companies
     const companies = [
+        { name: 'La Marquise Facilities Management', img: 'images/LM Facilities.png' },
+        { name: 'La Marquise Properties Management', img: 'images/LM Properties.png' },
         { name: 'Al Dahan Al Masi General Maintenance', img: 'images/Dahan_no_bg.png' },
         { name: 'Haven House General Contracting', img: 'images/HH Vertical_no_bg.png' },
         { name: 'Off White Interior Design', img: 'images/Off White.jpeg' },
         { name: 'ZEE Production House Real Estate Consultancy', img: 'images/ZEE_no_bg.png' }
+    ];
+
+    // Data: Services
+    const services = [
+        { title: 'Facilities Management', description: 'Comprehensive facility operations and maintenance for residential, commercial, and industrial properties.', link: 'service-facilities.html' },
+        { title: 'Properties Management', description: 'Expert property portfolio management, leasing, and tenant relations services.', link: 'service-properties.html' },
+        { title: 'Corporate Management', description: 'Strategic supervision and coordination of group operations across all subsidiaries.', link: 'service-corporate.html' },
+        { title: 'Real Estate Consultancy', description: 'Feasibility studies, investment advisory, and development strategies aligned with market trends.', link: 'service-consultancy.html' },
+        { title: 'Interior Design', description: 'Modern residential and commercial interior design with meticulous attention to detail.', link: 'service-interior.html' },
+        { title: 'Landscaping', description: 'Professional landscaping and grounds maintenance services for pristine outdoor spaces.', link: 'service-landscaping.html' },
+        { title: 'Cleaning Services', description: 'Integrated building and facility cleaning using advanced technologies and eco-friendly materials.', link: 'service-cleaning.html' },
+        { title: 'Swimming Pool Management', description: 'Complete pool operation, maintenance, and water quality management services.', link: 'service-pool.html' },
+        { title: 'Maintenance Services', description: 'Full-scale maintenance solutions including scheduled and emergency repairs, renovations, and technical support.', link: 'service-maintenance.html' }
     ];
 
     // Render function for Why carousel
@@ -567,7 +582,19 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }
 
-    // Initialize both carousels
+    // Render function for Services carousel
+    function renderServiceSlide(item) {
+        return `
+            <div class="service-slide">
+                <a href="${item.link}" class="service-slide-title-link">
+                    <h3 class="service-slide-title">${item.title}</h3>
+                </a>
+                <p class="service-slide-description">${item.description}</p>
+            </div>
+        `;
+    }
+
+    // Initialize all carousels
     console.log('=== INITIALIZING CAROUSELS ===');
 
     const whyCarousel = document.getElementById('whyCarousel');
@@ -586,6 +613,15 @@ document.addEventListener('DOMContentLoaded', function() {
         makeCarousel(companiesCarousel, companies, renderCompanySlide);
     } else {
         console.error('companiesCarousel element not found!');
+    }
+
+    const servicesCarousel = document.getElementById('servicesCarousel');
+    console.log('Services carousel element:', servicesCarousel);
+    if (servicesCarousel) {
+        console.log('Creating Services carousel with', services.length, 'services');
+        makeCarousel(servicesCarousel, services, renderServiceSlide);
+    } else {
+        console.error('servicesCarousel element not found!');
     }
 
     console.log('=== CAROUSEL INITIALIZATION COMPLETE ===');
