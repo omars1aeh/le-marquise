@@ -2051,7 +2051,7 @@ p {
 
     /* Page hero */
     .page-hero {
-        padding: clamp(5rem, 10vw + 2rem, 7rem) 0 clamp(2rem, 5vw, 2.5rem);
+        padding: clamp(4.5rem, 9vw + 1.5rem, 6rem) 0 clamp(2rem, 5vw, 2.5rem);
     }
 
     /* Companies section */
