@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply for a position at La Marquise Group - Submit your application online">
+    <title>Apply Now - La Marquise Group</title>
+    <link rel="stylesheet" href="css/styles.css?v=10">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/LM Horizontal_no_bg.png" alt="La Marquise Group" class="logo-image">
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li class="nav-item-dropdown">
+                    <a href="index.html#services" class="nav-link services-toggle">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="service-facilities.html">Facilities Management</a></li>
+                        <li><a href="service-properties.html">Properties Management</a></li>
+                        <li><a href="service-corporate.html">Corporate Management</a></li>
+                        <li><a href="service-consultancy.html">Real Estate Consultancy</a></li>
+                        <li><a href="service-interior.html">Interior Design</a></li>
+                        <li><a href="service-landscaping.html">Landscaping</a></li>
+                        <li><a href="service-cleaning.html">Cleaning Services</a></li>
+                        <li><a href="service-pool.html">Swimming Pool Management</a></li>
+                        <li><a href="service-maintenance.html">Maintenance Services</a></li>
+                    </ul>
+                </li>
+                <li><a href="careers.html" class="nav-link active">Careers</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero-title fade-in">Apply Now</h1>
+            <p class="page-hero-subtitle fade-in-delay">Submit your application to join the La Marquise Group team</p>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-form-wrapper">
+                    <h2 class="contact-form-title">Application Form</h2>
+                    <p class="contact-form-subtitle">Please fill out the form below to submit your application</p>
+
+                    <form class="contact-form" id="applicationForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" required>
+                                <span class="form-error" id="firstNameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" required>
+                                <span class="form-error" id="lastNameError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                                <span class="form-error" id="emailError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" required>
+                                <span class="form-error" id="phoneError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="position" class="form-label">Position Applying For *</label>
+                            <select id="position" name="position" class="form-input" required>
+                                <option value="">Select a position</option>
+                                <option value="executive-secretary">Executive Secretary</option>
+                                <option value="hvac-engineer">HVAC Engineer</option>
+                                <option value="social-media-marketing">Social Media & Marketing Manager</option>
+                                <option value="other">Other Position</option>
+                            </select>
+                            <span class="form-error" id="positionError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience" class="form-label">Years of Experience *</label>
+                            <input type="text" id="experience" name="experience" class="form-input" required>
+                            <span class="form-error" id="experienceError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="education" class="form-label">Highest Education Level *</label>
+                            <input type="text" id="education" name="education" class="form-input" required>
+                            <span class="form-error" id="educationError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="coverLetter" class="form-label">Cover Letter / Why should we hire you? *</label>
+                            <textarea id="coverLetter" name="coverLetter" class="form-input form-textarea" rows="6" required></textarea>
+                            <span class="form-error" id="coverLetterError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="resume" class="form-label">Resume/CV (Please provide a link to your resume)</label>
+                            <input type="url" id="resume" name="resume" class="form-input" placeholder="https://example.com/your-resume.pdf">
+                            <span class="form-error" id="resumeError"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">Submit Application</button>
+
+                        <div class="form-success" id="formSuccess">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <p>Thank you! Your application has been submitted successfully. We'll review your application and get back to you soon.</p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="contact-info-wrapper">
+                    <div class="contact-info-card">
+                        <h3 class="contact-info-title">Application Tips</h3>
+                        <div class="contact-info-item">
+                            <div>
+                                <h4>Complete Information</h4>
+                                <p>Ensure all required fields are filled accurately</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div>
+                                <h4>Professional Resume</h4>
+                                <p>Provide a link to your updated resume or CV</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div>
+                                <h4>Cover Letter</h4>
+                                <p>Explain why you're a great fit for this role</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-cta-card">
+                        <h3>Questions?</h3>
+                        <p>If you have any questions about the application process or available positions, feel free to reach out to us.</p>
+                        <a href="contact.html" class="btn btn-secondary" style="width: 100%;">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="images/LM Vertical_no_bg.png" alt="La Marquise Group" class="footer-logo-image">
+                    <p class="footer-tagline">Excellence in Management Services</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#services" class="footer-services-link">Services</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>Email: info.fm@marquise.ae</li>
+                        <li>Phone: +971 55 556 4333</li>
+                        <li>Abu Dhabi, UAE</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 La Marquise Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

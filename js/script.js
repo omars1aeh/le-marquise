@@ -4,6 +4,33 @@
  */
 
 // ========================================
+// Hero Slideshow
+// ========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const heroSection = document.getElementById('heroSection');
+
+    if (heroSection) {
+        const slides = heroSection.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            // Remove active class from current slide
+            slides[currentSlide].classList.remove('active');
+
+            // Move to next slide (loop back to 0 if at end)
+            currentSlide = (currentSlide + 1) % slides.length;
+
+            // Add active class to new current slide
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Change slide every 4 seconds
+        setInterval(nextSlide, 4000);
+    }
+});
+
+// ========================================
 // Mobile Menu Toggle
 // ========================================
 
@@ -688,6 +715,44 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     console.log('=== CAROUSEL INITIALIZATION COMPLETE ===');
+});
+
+// ========================================
+// Services Page Expandable List
+// ========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const serviceItems = document.querySelectorAll('.service-expandable-item');
+
+    serviceItems.forEach(item => {
+        const header = item.querySelector('.service-expandable-header');
+        const toggle = item.querySelector('.service-expand-toggle');
+
+        if (header && toggle) {
+            header.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Close other open items
+                serviceItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+
+            header.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    header.click();
+                }
+            });
+
+            header.setAttribute('tabindex', '0');
+        }
+    });
 });
 
 // ========================================
