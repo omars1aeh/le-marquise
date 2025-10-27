@@ -1955,7 +1955,7 @@ p {
     }
 
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .section-title {
@@ -1963,7 +1963,31 @@ p {
     }
 
     .section-subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
+    }
+
+    /* General text size reduction for mobile */
+    p, li {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .service-card-description,
+    .benefit-item p,
+    .careers-item-text,
+    .careers-box p,
+    .why-item p,
+    .company-card p,
+    .service-expandable-content p,
+    .job-requirements li,
+    .services-description {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.5rem;
     }
 
     /* Navigation */
