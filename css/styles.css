@@ -544,7 +544,7 @@ p {
 .service-card-description {
     color: var(--color-text-light);
     line-height: 1.7;
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
 }
 
 /* ========================================
@@ -1994,7 +1994,7 @@ p {
 
     /* Smaller content text: ~14-15px */
     .service-card-description {
-        font-size: clamp(0.8125rem, 1.2vw + 0.25rem, 0.875rem);
+        font-size: clamp(0.75rem, 1vw + 0.2rem, 0.8125rem);
         line-height: 1.6;
     }
 
