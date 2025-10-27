@@ -620,7 +620,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { title: 'Corporate Management', description: 'Strategic supervision and coordination of group operations across all subsidiaries.', link: 'service-corporate.html' },
         { title: 'Real Estate Consultancy', description: 'Feasibility studies, investment advisory, and development strategies aligned with market trends.', link: 'service-consultancy.html' },
         { title: 'Interior Design', description: 'Modern residential and commercial interior design with meticulous attention to detail.', link: 'service-interior.html' },
-        { title: 'Landscaping', description: 'Professional landscaping and grounds maintenance services for pristine outdoor spaces.', link: 'service-landscaping.html' },
+        { title: 'Landscaping', description: 'Professional landscaping and garden maintenance services for pristine outdoor spaces.', link: 'service-landscaping.html' },
         { title: 'Cleaning Services', description: 'Integrated building and facility cleaning using advanced technologies and eco-friendly materials.', link: 'service-cleaning.html' },
         { title: 'Swimming Pool Management', description: 'Complete pool operation, maintenance, and water quality management services.', link: 'service-pool.html' },
         { title: 'Maintenance Services', description: 'Full-scale maintenance solutions including scheduled and emergency repairs, renovations, and technical support.', link: 'service-maintenance.html' }
@@ -688,4 +688,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     console.log('=== CAROUSEL INITIALIZATION COMPLETE ===');
+});
+
+// ========================================
+// Job Listings Toggle (Careers Page)
+// ========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const jobItems = document.querySelectorAll('.job-item');
+
+    jobItems.forEach(item => {
+        const header = item.querySelector('.job-header');
+        const toggle = item.querySelector('.job-toggle');
+
+        if (header && toggle) {
+            // Add click handler to entire header
+            header.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Close other open items
+                jobItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+
+            // Keyboard accessibility
+            header.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    header.click();
+                }
+            });
+
+            // Make header focusable
+            header.setAttribute('tabindex', '0');
+        }
+    });
 });
