@@ -635,7 +635,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { title: 'Real Estate Consultancy', description: 'Feasibility studies, investment advisory, and development strategies aligned with market trends.', link: 'service-consultancy.html' },
         { title: 'Interior Design', description: 'Creative interior design solutions for homes and businesses.', link: 'service-interior.html' },
         { title: 'Landscaping', description: 'Expert landscaping design and maintenance services.', link: 'service-landscaping.html' },
-        { title: 'Cleaning Services', description: 'Integrated building and facility cleaning using advanced technologies and eco-friendly materials.', link: 'service-cleaning.html' },
+        { title: 'Cleaning Services', description: 'Professional cleaning solutions for all property types.', link: 'service-cleaning.html' },
         { title: 'Swimming Pool Management', description: 'Complete pool operation, maintenance, and water quality management services.', link: 'service-pool.html' },
         { title: 'Maintenance Services', description: 'Full-scale maintenance solutions including scheduled and emergency repairs, renovations, and technical support.', link: 'service-maintenance.html' }
     ];
