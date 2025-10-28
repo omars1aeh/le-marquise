@@ -2354,8 +2354,8 @@ p {
     }
 
     .services-overview .section-logo-container {
-        margin-top: 0;
-        margin-bottom: var(--spacing-xs);
+        margin-top: var(--spacing-md);
+        margin-bottom: var(--spacing-sm);
     }
 
     .services-overview .section-title {
