@@ -73,10 +73,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const navItemDropdown = document.querySelector('.nav-item-dropdown');
 
     if (servicesToggle && navItemDropdown) {
-        // Toggle dropdown on click
-        servicesToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            navItemDropdown.classList.toggle('active');
+        // Show dropdown on hover only, allow click to navigate
+        navItemDropdown.addEventListener('mouseenter', function() {
+            navItemDropdown.classList.add('active');
+        });
+
+        navItemDropdown.addEventListener('mouseleave', function() {
+            navItemDropdown.classList.remove('active');
         });
 
         // Close dropdown when clicking outside
@@ -99,24 +102,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Footer Services Link Handler
     // ========================================
 
-    const footerServicesLinks = document.querySelectorAll('.footer-services-link');
-    footerServicesLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // If on index page, prevent default and show dropdown
-            if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-
-                // Open dropdown after scroll
-                setTimeout(() => {
-                    if (navItemDropdown) {
-                        navItemDropdown.classList.add('active');
-                    }
-                }, 500);
-            }
-            // Otherwise, let it navigate to index.html#services
-        });
-    });
+    // Footer services links now navigate to services.html
+    // No special handling needed - let them work normally
 
     // Check if page loaded with #services hash
     if (window.location.hash === '#services') {

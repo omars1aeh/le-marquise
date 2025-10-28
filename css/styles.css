@@ -1008,10 +1008,29 @@ p {
 .content-text p {
     margin-bottom: var(--spacing-md);
     line-height: 1.8;
+    text-align: justify;
 }
 
 .content-image {
     width: 100%;
+}
+
+.about-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+    overflow: hidden;
+    height: 80px;
+}
+
+.about-logo {
+    width: auto;
+    height: 200px;
+    object-fit: contain;
+    margin-top: -10px;
+    opacity: 0.7;
 }
 
 .image-placeholder {
@@ -1051,6 +1070,7 @@ p {
     font-size: 1.125rem;
     line-height: 1.8;
     color: var(--color-text);
+    text-align: justify;
 }
 
 .values-grid {
