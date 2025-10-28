@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow test and diagnostic pages
+Disallow: /carousel-test.html
+Disallow: /diagnostic.html
+Disallow: /script-test.html
+
+# Sitemap location
+Sitemap: https://omarsa1eh.github.io/le-marquise/sitemap.xml
