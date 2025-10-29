@@ -655,7 +655,6 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="company-logo-box">
                 <img src="${item.img}" alt="${item.name}">
             </div>
-            <h3>${item.name}</h3>
         `;
     }
 
