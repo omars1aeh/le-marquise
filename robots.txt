@@ -7,4 +7,4 @@ Disallow: /diagnostic.html
 Disallow: /script-test.html
 
 # Sitemap location
-Sitemap: https://omarsa1eh.github.io/le-marquise/sitemap.xml
+Sitemap: https://marquise.ae/sitemap.xml
