@@ -634,6 +634,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { title: 'Corporate Management', description: 'Strategic supervision and coordination of group operations across all subsidiaries.', link: 'service-corporate.html' },
         { title: 'Real Estate Consultancy', description: 'Feasibility studies, investment advisory, and development strategies aligned with market trends.', link: 'service-consultancy.html' },
         { title: 'Interior Design', description: 'Creative interior design solutions for homes and businesses.', link: 'service-interior.html' },
+        { title: 'General Contracting', description: 'Quality construction and finishing solutions for residential and commercial projects.', link: 'service-contracting.html' },
         { title: 'Landscaping', description: 'Expert landscaping design and maintenance services.', link: 'service-landscaping.html' },
         { title: 'Cleaning Services', description: 'Professional cleaning solutions for all property types.', link: 'service-cleaning.html' },
         { title: 'Swimming Pool Management', description: 'Complete pool operation, maintenance, and water quality management services.', link: 'service-pool.html' },
