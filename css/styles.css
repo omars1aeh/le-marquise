@@ -724,6 +724,20 @@ p {
     justify-content: center;
 }
 
+#companiesCarousel .company-logo-link {
+    display: block;
+    width: 100%;
+    transition: var(--transition-base);
+}
+
+#companiesCarousel .company-logo-link:hover {
+    transform: scale(1.02);
+}
+
+#companiesCarousel .company-logo-link:hover .company-logo-box {
+    opacity: 0.85;
+}
+
 #companiesCarousel .company-logo-box {
     width: 100%;
     max-width: 700px;
@@ -733,6 +747,8 @@ p {
     justify-content: center;
     margin-bottom: 24px;
     padding: 40px;
+    transition: var(--transition-base);
+    cursor: pointer;
 }
 
 #companiesCarousel .company-logo-box img {
@@ -1002,6 +1018,7 @@ p {
 }
 
 .content-title {
+    color: var(--color-primary);
     margin-bottom: var(--spacing-md);
 }
 
@@ -1021,16 +1038,16 @@ p {
     align-items: center;
     margin-bottom: var(--spacing-xl);
     margin-top: var(--spacing-xl);
-    overflow: hidden;
-    height: 80px;
+    min-height: 300px;
 }
 
 .about-logo {
     width: auto;
-    height: 200px;
+    max-height: 280px;
+    height: auto;
+    max-width: 100%;
     object-fit: contain;
-    margin-top: -10px;
-    opacity: 0.7;
+    opacity: 0.9;
 }
 
 .image-placeholder {

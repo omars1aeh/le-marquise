@@ -619,12 +619,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Data: Companies
     const companies = [
-        { name: 'La Marquise Facilities Management', img: 'images/LM Facilities.png' },
-        { name: 'La Marquise Properties Management', img: 'images/LM Properties.png' },
-        { name: 'Al Dahan Al Masi General Maintenance', img: 'images/AL_DAHAN_AL_MASI_logo_no_bg.png' },
-        { name: 'Haven House General Contracting', img: 'images/HH Vertical_no_bg.png' },
-        { name: 'Off White Interior Design', img: 'images/Off White.jpeg' },
-        { name: 'ZEE Production House Real Estate Consultancy', img: 'images/ZEE_no_bg.png' }
+        { name: 'La Marquise Facilities Management', img: 'images/LM Facilities.png', link: 'company-lm-facilities.html' },
+        { name: 'La Marquise Properties Management', img: 'images/LM Properties.png', link: 'company-lm-properties.html' },
+        { name: 'Al Dahan Al Masi General Maintenance', img: 'images/AL_DAHAN_AL_MASI_logo_no_bg.png', link: 'company-dahan.html' },
+        { name: 'Haven House General Contracting', img: 'images/HH Vertical_no_bg.png', link: 'company-haven-house.html' },
+        { name: 'Off White Interior Design', img: 'images/Off White.jpeg', link: 'company-off-white.html' },
+        { name: 'ZEE Production House Real Estate Consultancy', img: 'images/ZEE_no_bg.png', link: 'company-zee.html' }
     ];
 
     // Data: Services
@@ -653,9 +653,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Render function for Companies carousel
     function renderCompanySlide(item) {
         return `
-            <div class="company-logo-box">
-                <img src="${item.img}" alt="${item.name}">
-            </div>
+            <a href="${item.link}" class="company-logo-link">
+                <div class="company-logo-box">
+                    <img src="${item.img}" alt="${item.name}">
+                </div>
+            </a>
         `;
     }
 
