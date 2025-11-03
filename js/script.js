@@ -623,8 +623,8 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'La Marquise Properties Management', img: 'images/LM Properties.png', link: 'company-lm-properties.html' },
         { name: 'Al Dahan Al Masi General Maintenance', img: 'images/AL_DAHAN_AL_MASI_logo_no_bg.png', link: 'company-dahan.html' },
         { name: 'Haven House General Contracting', img: 'images/HH Vertical_no_bg.png', link: 'company-haven-house.html' },
-        { name: 'Off White Interior Design', img: 'images/Off White.jpeg', link: 'company-off-white.html' },
-        { name: 'ZEE Production House Real Estate Consultancy', img: 'images/ZEE_no_bg.png', link: 'company-zee.html' }
+        { name: 'Off White Interior Design', img: 'images/OFF_WHITE_logo_transparent.png', link: 'company-off-white.html' },
+        { name: 'ZEE Production House Real Estate Consultancy', img: 'images/ZEE_PH_logo_transparent.png', link: 'company-zee.html' }
     ];
 
     // Data: Services
