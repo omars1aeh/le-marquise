@@ -957,10 +957,24 @@ p {
 }
 
 /* ========================================
-   Our Companies Section
+   Our Companies Section - Logo Carousel
    ======================================== */
 
 .companies-section {
+    --center-scale: 1.0;
+    --side-scale: 0.85;
+    --center-opacity: 1;
+    --side-opacity: 0.35;
+    --logo-max-w: 360px;
+    --logo-max-h: 220px;
+    --gap: 32px;
+    --radius: 0px;
+    --arrow-size: 44px;
+    --active-dot-w: 36px;
+    --dot-w: 20px;
+    --dot-h: 8px;
+    --dot-gap: 8px;
+
     background-color: var(--color-background-light);
     padding-top: var(--spacing-lg);
     padding-bottom: calc(var(--spacing-xl) + 2rem);
@@ -968,6 +982,173 @@ p {
 
 .companies-section .section-title {
     padding-top: var(--spacing-sm);
+}
+
+.companies-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-lg);
+}
+
+.companies-header > div:first-child {
+    flex: 1;
+    text-align: center;
+}
+
+.companies-section .section-title,
+.companies-section .section-subtitle {
+    color: var(--color-text);
+}
+
+.carousel-counter {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    font-weight: 500;
+    white-space: nowrap;
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* Logo Carousel Container */
+.logo-carousel {
+    position: relative;
+    width: 100%;
+    padding: var(--spacing-lg) 0;
+}
+
+/* Carousel Viewport */
+.carousel-viewport {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* Carousel Track */
+.carousel-track {
+    display: flex;
+    align-items: center;
+    transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+/* Logo Item */
+.carousel-logo-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 400ms ease, transform 400ms ease;
+    padding: 0 calc(var(--gap) / 2);
+}
+
+.carousel-logo-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.carousel-logo-box {
+    width: var(--logo-max-w);
+    height: var(--logo-max-h);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+}
+
+.carousel-logo-box img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Carousel Arrows */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: var(--arrow-size);
+    height: var(--arrow-size);
+    border-radius: 50%;
+    background: white;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    transition: all 300ms ease;
+    outline: none;
+}
+
+.carousel-arrow:hover:not(.is-disabled) {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    background: var(--color-primary);
+    color: white;
+}
+
+.carousel-arrow:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.carousel-arrow.is-disabled {
+    opacity: 0.35;
+    pointer-events: none;
+    cursor: default;
+}
+
+.carousel-arrow-prev {
+    left: 0;
+}
+
+.carousel-arrow-next {
+    right: 0;
+}
+
+/* Pagination Dots */
+.carousel-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--dot-gap);
+    margin-top: var(--spacing-md);
+}
+
+.carousel-dot {
+    width: var(--dot-w);
+    height: var(--dot-h);
+    background: rgba(108, 63, 148, 0.2);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 300ms ease;
+    outline: none;
+}
+
+.carousel-dot:hover {
+    background: rgba(108, 63, 148, 0.4);
+}
+
+.carousel-dot:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.carousel-dot.is-active {
+    width: var(--active-dot-w);
+    background: var(--color-primary);
 }
 
 /* ========================================
@@ -2133,6 +2314,20 @@ p {
     /* Companies section */
     .companies-section {
         padding-top: clamp(2.5rem, 6vw, 3rem);
+        --logo-max-w: 280px;
+        --logo-max-h: 180px;
+        --gap: 24px;
+        --arrow-size: 40px;
+    }
+
+    .companies-header {
+        justify-content: center;
+    }
+
+    .carousel-counter {
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 
     /* Careers section */
@@ -2579,5 +2774,13 @@ p {
 
     .container {
         padding: 0 16px;
+    }
+
+    /* Mobile logo carousel - show 1.2 logos */
+    .companies-section {
+        --logo-max-w: 240px;
+        --logo-max-h: 150px;
+        --gap: 16px;
+        --arrow-size: 36px;
     }
 }

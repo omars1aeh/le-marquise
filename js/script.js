@@ -601,6 +601,290 @@ function makeCarousel(rootEl, items, renderSlide) {
 }
 
 // ========================================
+// Logo Carousel (Companies Section)
+// ========================================
+
+function initLogoCarousel({ root, items, autoplay = false, interval = 5000 }) {
+    const rootEl = typeof root === 'string' ? document.querySelector(root) : root;
+    if (!rootEl) {
+        console.error('Logo carousel root not found:', root);
+        return null;
+    }
+
+    const track = rootEl.querySelector('.carousel-track');
+    const prevBtn = rootEl.querySelector('.carousel-arrow-prev');
+    const nextBtn = rootEl.querySelector('.carousel-arrow-next');
+    const paginationEl = document.getElementById('companiesPagination');
+    const counterEl = document.getElementById('companiesCounter');
+
+    let currentIndex = 0;
+    let autoplayTimer = null;
+    let isDragging = false;
+    let startX = 0;
+    let currentX = 0;
+
+    // Render all logo items
+    function init() {
+        track.innerHTML = items.map((item, i) => `
+            <div class="carousel-logo-item" data-index="${i}">
+                <a href="${item.link}" class="carousel-logo-link">
+                    <div class="carousel-logo-box">
+                        <img src="${item.img}" alt="${item.name}" />
+                    </div>
+                </a>
+            </div>
+        `).join('');
+
+        // Render pagination dots
+        if (paginationEl) {
+            paginationEl.innerHTML = items.map((_, i) => `
+                <button
+                    class="carousel-dot ${i === 0 ? 'is-active' : ''}"
+                    data-index="${i}"
+                    role="tab"
+                    aria-label="Go to company ${i + 1}"
+                    aria-selected="${i === 0 ? 'true' : 'false'}"
+                ></button>
+            `).join('');
+
+            // Add click handlers to pagination dots
+            paginationEl.querySelectorAll('.carousel-dot').forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const index = parseInt(dot.dataset.index);
+                    goTo(index);
+                });
+            });
+        }
+
+        render();
+        if (autoplay) startAutoplay();
+    }
+
+    // Calculate transform and apply scale/opacity based on position
+    function render() {
+        const logoItems = track.querySelectorAll('.carousel-logo-item');
+        const viewportWidth = rootEl.querySelector('.carousel-viewport').offsetWidth;
+        const logoWidth = parseFloat(getComputedStyle(rootEl).getPropertyValue('--logo-max-w')) || 360;
+        const gap = parseFloat(getComputedStyle(rootEl).getPropertyValue('--gap')) || 32;
+        const itemWidth = logoWidth + gap;
+
+        // Determine how many items visible based on viewport
+        const isMobile = window.innerWidth < 768;
+        const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+
+        // Calculate offset to center the current item
+        const centerOffset = (viewportWidth / 2) - (logoWidth / 2);
+        const translateX = centerOffset - (currentIndex * itemWidth);
+
+        track.style.transform = `translateX(${translateX}px)`;
+
+        // Apply scale and opacity to each item based on distance from center
+        logoItems.forEach((item, i) => {
+            const isCenter = i === currentIndex;
+
+            // Calculate if this item is adjacent (wrapping around for infinite loop)
+            const prevIndex = (currentIndex - 1 + items.length) % items.length;
+            const nextIndex = (currentIndex + 1) % items.length;
+            const isPrevSide = i === prevIndex;
+            const isNextSide = i === nextIndex;
+            const isSide = isPrevSide || isNextSide;
+
+            const centerScale = parseFloat(getComputedStyle(rootEl).getPropertyValue('--center-scale')) || 1.0;
+            const sideScale = parseFloat(getComputedStyle(rootEl).getPropertyValue('--side-scale')) || 0.85;
+            const centerOpacity = parseFloat(getComputedStyle(rootEl).getPropertyValue('--center-opacity')) || 1;
+            const sideOpacity = parseFloat(getComputedStyle(rootEl).getPropertyValue('--side-opacity')) || 0.35;
+
+            if (isCenter) {
+                item.style.transform = `scale(${centerScale})`;
+                item.style.opacity = centerOpacity;
+                item.style.zIndex = '10';
+            } else if (isSide && !isMobile) {
+                item.style.transform = `scale(${sideScale})`;
+                item.style.opacity = sideOpacity;
+                item.style.zIndex = '5';
+            } else {
+                item.style.transform = `scale(${sideScale})`;
+                item.style.opacity = isMobile && (isPrevSide || isNextSide) ? sideOpacity : '0';
+                item.style.zIndex = '1';
+            }
+        });
+
+        // Update arrow disabled states
+        updateArrows();
+
+        // Update pagination
+        updatePagination();
+
+        // Update counter
+        updateCounter();
+    }
+
+    function updateArrows() {
+        // Always enabled for infinite loop
+        if (prevBtn) {
+            prevBtn.classList.remove('is-disabled');
+            prevBtn.setAttribute('aria-disabled', 'false');
+        }
+
+        if (nextBtn) {
+            nextBtn.classList.remove('is-disabled');
+            nextBtn.setAttribute('aria-disabled', 'false');
+        }
+    }
+
+    function updatePagination() {
+        if (!paginationEl) return;
+
+        paginationEl.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            if (i === currentIndex) {
+                dot.classList.add('is-active');
+                dot.setAttribute('aria-selected', 'true');
+            } else {
+                dot.classList.remove('is-active');
+                dot.setAttribute('aria-selected', 'false');
+            }
+        });
+    }
+
+    function updateCounter() {
+        if (!counterEl) return;
+        const current = String(currentIndex + 1).padStart(2, '0');
+        const total = String(items.length).padStart(2, '0');
+        counterEl.textContent = `${current}/${total}`;
+    }
+
+    function next() {
+        currentIndex = (currentIndex + 1) % items.length;
+        render();
+        resetAutoplay();
+    }
+
+    function prev() {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        render();
+        resetAutoplay();
+    }
+
+    function goTo(index) {
+        if (index >= 0 && index < items.length) {
+            currentIndex = index;
+            render();
+            resetAutoplay();
+        }
+    }
+
+    function startAutoplay() {
+        if (!autoplay) return;
+        autoplayTimer = setInterval(() => {
+            next(); // Will automatically wrap around due to modulo
+        }, interval);
+    }
+
+    function stopAutoplay() {
+        if (autoplayTimer) {
+            clearInterval(autoplayTimer);
+            autoplayTimer = null;
+        }
+    }
+
+    function resetAutoplay() {
+        if (autoplay) {
+            stopAutoplay();
+            startAutoplay();
+        }
+    }
+
+    // Event listeners
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            prev();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            next();
+        });
+    }
+
+    // Keyboard navigation
+    rootEl.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            prev();
+        } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            next();
+        }
+    });
+
+    // Drag/swipe support
+    track.addEventListener('mousedown', handleDragStart);
+    track.addEventListener('touchstart', handleDragStart, { passive: true });
+
+    function handleDragStart(e) {
+        isDragging = true;
+        startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+        currentX = startX;
+
+        document.addEventListener('mousemove', handleDragMove);
+        document.addEventListener('touchmove', handleDragMove);
+        document.addEventListener('mouseup', handleDragEnd);
+        document.addEventListener('touchend', handleDragEnd);
+    }
+
+    function handleDragMove(e) {
+        if (!isDragging) return;
+        currentX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
+    }
+
+    function handleDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+
+        const diff = startX - currentX;
+        const threshold = 50;
+
+        if (Math.abs(diff) > threshold) {
+            if (diff > 0) {
+                next();
+            } else {
+                prev();
+            }
+        }
+
+        document.removeEventListener('mousemove', handleDragMove);
+        document.removeEventListener('touchmove', handleDragMove);
+        document.removeEventListener('mouseup', handleDragEnd);
+        document.removeEventListener('touchend', handleDragEnd);
+    }
+
+    // Pause autoplay on hover
+    if (autoplay) {
+        rootEl.addEventListener('mouseenter', stopAutoplay);
+        rootEl.addEventListener('mouseleave', startAutoplay);
+    }
+
+    // Handle window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            render();
+        }, 150);
+    });
+
+    // Make focusable for keyboard nav
+    rootEl.setAttribute('tabindex', '0');
+
+    init();
+
+    return { next, prev, goTo };
+}
+
+// ========================================
 // Initialize Carousels on Page Load
 // ========================================
 
@@ -688,8 +972,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const companiesCarousel = document.getElementById('companiesCarousel');
     console.log('Companies carousel element:', companiesCarousel);
     if (companiesCarousel) {
-        console.log('Creating Companies carousel with', companies.length, 'companies');
-        makeCarousel(companiesCarousel, companies, renderCompanySlide);
+        console.log('Creating Logo carousel with', companies.length, 'companies');
+        initLogoCarousel({
+            root: '#companiesCarousel',
+            items: companies,
+            autoplay: false,
+            interval: 5000
+        });
     } else {
         console.error('companiesCarousel element not found!');
     }
